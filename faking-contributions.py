@@ -4,18 +4,17 @@ from datetime import date, timedelta
 from random import randint
 
 username = sys.argv[1]
-password = sys.argv[2]
-repository = sys.argv[3]
+repository = sys.argv[2]
 hasTemplate = False
-if len(sys.argv) == 5:
-	template = sys.argv[4]
+if len(sys.argv) == 4:
+	template = sys.argv[3]
 	hasTemplate = True
 
 call('git init', shell=True)
-call('git remote add origin https://' + username + ':' + password + '@github.com/' + username + '/' + repository + '.git', shell=True)
+call('git remote add origin git@github.com:' + username + '/' + repository + '.git', shell=True)
 
 time = '12:00:00'
-offset = '-0500'
+offset = '+1000'
 minimum = 0
 maximum = 50
 filename = 'README.md'
